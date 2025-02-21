@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú - Pizza</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="cate.html"></script>
+
 </head>
 <body>
     <aside>
@@ -39,9 +41,9 @@
                     <p>$8.00</p>
                     <p>10 Disponibles</p>
                     <div class="contador">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button onclick="changeValue('countermarga', -1)">-</button>
+                        <input type="number" id="countermarga" value="1" min="0">
+                        <button onclick="changeValue('countermarga', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -51,9 +53,9 @@
                     <p>$9.00</p>
                     <p>12 Disponibles</p>
                     <div class="contador">
-                        <button onclick="changeValue(-1)">-</button>
-                        <input type="number" id="counterInput" value="0" min="0" readonly>
-                        <button onclick="changeValue(1)">+</button>
+                        <button onclick="changeValue('counterpepe', -1)">-</button>
+                        <input type="number" id="counterpepe" value="1" min="0">
+                        <button onclick="changeValue('counterpepe', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -63,9 +65,9 @@
                     <p>$8.50</p>
                     <p>8 Disponibles</p>
                     <div class="contador">
-                        <button onclick="changeValue(-1)">-</button>
-                        <input type="number" id="counterInput" value="0" min="0" readonly>
-                        <button onclick="changeValue(1)">+</button>
+                        <button onclick="changeValue('vegeta', -1)">-</button>
+                        <input type="number" id="vegeta" value="1" min="0">
+                        <button onclick="changeValue('vegeta', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -74,26 +76,13 @@
 
         <section class="cart">
             <h2>Carrito de Compras</h2>
-            <div class="cart-items">
-                <div class="cart-item">
-                    <p>Orange Juice (4) - $2.87 c/u</p>
-                    <p>Total: $11.48</p>
-                </div>
-                <div class="cart-item">
-                    <p>American Favorite (1) - $4.87</p>
-                </div>
-                <div class="cart-item">
-                    <p>Super Supreme (1) - $5.75</p>
-                </div>
-                <div class="cart-item">
-                    <p>Favorite Cheese (1) - $6.75</p>
-                </div>
-            </div>
-            <p><strong>Subtotal:</strong> $28.67</p>
-            <p><strong>Tax (10%):</strong> $2.86</p>
-            <p><strong>Total:</strong> $31.53</p>
+            <div class="cart-items"></div> <!-- Aquí se agregarán los productos -->
+            <p><strong>Subtotal:</strong> <span id="subtotal">$0.00</span></p>
+            <p><strong>Tax (10%):</strong> <span id="tax">$0.00</span></p>
+            <p><strong>Total:</strong> <span id="total">$0.00</span></p>
             <button class="print-bill">Imprimir Factura</button>
         </section>
+        
     </div>
 </body>
 </html>

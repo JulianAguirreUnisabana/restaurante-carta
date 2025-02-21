@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú - Hamburguesa</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="cate.html"></script>
+
 </head>
 <body>
     <aside>
@@ -39,9 +41,9 @@
                     <p>$6.50</p>
                     <p>10 Disponibles</p>
                     <div class="contador">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button onclick="changeValue('countercla', -1)">-</button>
+                        <input type="number" id="countercla" value="1" min="0">
+                        <button onclick="changeValue('countercla', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -51,9 +53,9 @@
                     <p>$7.00</p>
                     <p>8 Disponibles</p>
                     <div class="contador">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button onclick="changeValue('counterque', -1)">-</button>
+                        <input type="number" id="counterque" value="1" min="0">
+                        <button onclick="changeValue('counterque', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -63,9 +65,9 @@
                     <p>$7.50</p>
                     <p>5 Disponibles</p>
                     <div class="contador">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button onclick="changeValue('counterba', -1)">-</button>
+                        <input type="number" id="counterba" value="1" min="0">
+                        <button onclick="changeValue('counterba', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -75,9 +77,9 @@
                     <p>$7.00</p>
                     <p>12 Disponibles</p>
                     <div class="contador">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button onclick="changeValue('counter1veg', -1)">-</button>
+                        <input type="number" id="counter1veg" value="1" min="0">
+                        <button onclick="changeValue('counter1veg', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú - Bebidas</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="cate.html"></script>
 </head>
 <body>
     
@@ -39,9 +40,9 @@
                     <p>$1.50</p>
                     <p>20 Disponibles</p>
                     <div class="contador">
-                        <button onclick="changeValue(-1)">-</button>
-                        <input type="number" id="counterInput" value="0" min="0" readonly>
-                        <button onclick="changeValue(1)">+</button>
+                        <button onclick="changeValue('countercoca', -1)">-</button>
+                        <input type="number" id="countercoca" value="1" min="0">
+                        <button onclick="changeValue('countercoca', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -51,9 +52,9 @@
                     <p>$2.00</p>
                     <p>15 Disponibles</p>
                     <div class="contador">
-                        <button onclick="changeValue(-1)">-</button>
-                        <input type="number" id="counterInput" value="0" min="0" readonly>
-                        <button onclick="changeValue(1)">+</button>
+                        <button onclick="changeValue('counternara', -1)">-</button>
+                        <input type="number" id="counternara" value="1" min="0">
+                        <button onclick="changeValue('counternara', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
@@ -63,9 +64,9 @@
                     <p>$1.00</p>
                     <p>30 Disponibles</p>
                     <div class="contador">
-                        <button onclick="changeValue(-1)">-</button>
-                        <input type="number" id="counterInput" value="0" min="0" readonly>
-                        <button onclick="changeValue(1)">+</button>
+                        <button onclick="changeValue('counteragua', -1)">-</button>
+                        <input type="number" id="counteragua" value="1" min="0">
+                        <button onclick="changeValue('counteragua', 1)">+</button>
                     </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
