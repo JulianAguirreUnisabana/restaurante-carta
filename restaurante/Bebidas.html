@@ -26,7 +26,7 @@
         <nav>
             <button onclick="window.location.href='pizza.html'">Pizza</button>
             <button onclick="window.location.href='hamburguesa.html'">Hamburguesa</button>
-            <button onclick="window.location.href='perro caliente.html'">Perro Caliente</button>
+            <button onclick="window.location.href='perro-caliente.html'">Perro Caliente</button>
             <button onclick="window.location.href='snacks.html'">Snacks</button>
             <button onclick="window.location.href='bebidas.html'">Bebidas</button>
         </nav>
@@ -34,40 +34,25 @@
         <section class="menu-items">
             <h2>Elige tu Bebida</h2>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="menu-item" data-nombre="Coca Cola" data-precio="1.50">
                     <img src="coca.jpg" alt="Coca Cola">
                     <h3>Coca Cola</h3>
                     <p>$1.50</p>
                     <p>20 Disponibles</p>
-                    <div class="contador">
-                        <button onclick="changeValue('countercoca', -1)">-</button>
-                        <input type="number" id="countercoca" value="1" min="0">
-                        <button onclick="changeValue('countercoca', 1)">+</button>
-                    </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" data-nombre="Jugo de Naranja" data-precio="2.00">
                     <img src="naranja.jpg" alt="Jugo de Naranja">
                     <h3>Jugo de Naranja</h3>
                     <p>$2.00</p>
                     <p>15 Disponibles</p>
-                    <div class="contador">
-                        <button onclick="changeValue('counternara', -1)">-</button>
-                        <input type="number" id="counternara" value="1" min="0">
-                        <button onclick="changeValue('counternara', 1)">+</button>
-                    </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" data-nombre="Agua" data-precio="1.00">
                     <img src="agua.jpg" alt="Agua">
                     <h3>Agua</h3>
                     <p>$1.00</p>
                     <p>30 Disponibles</p>
-                    <div class="contador">
-                        <button onclick="changeValue('counteragua', -1)">-</button>
-                        <input type="number" id="counteragua" value="1" min="0">
-                        <button onclick="changeValue('counteragua', 1)">+</button>
-                    </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
             </div>
@@ -75,12 +60,10 @@
 
         <section class="cart">
             <h2>Carrito de Compras</h2>
-            <div class="cart-items">
-                <p><strong>Carrito vacío</strong></p>
-            </div>
-            <p><strong>Subtotal:</strong> $0.00</p>
-            <p><strong>Tax (10%):</strong> $0.00</p>
-            <p><strong>Total:</strong> $0.00</p>
+            <div class="cart-items"></div>
+            <p><strong>Subtotal:</strong> <span id="subtotal">$0.00</span></p>
+            <p><strong>Tax (10%):</strong> <span id="tax">$0.00</span></p>
+            <p><strong>Total:</strong> <span id="total">$0.00</span></p>
             <button class="print-bill">Imprimir Factura</button>
         </section>
     </div>
