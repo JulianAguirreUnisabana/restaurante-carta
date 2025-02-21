@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú - Hamburguesa</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="cate.html"></script>
-
+    <script src="script.js" defer></script>
 </head>
 <body>
     <aside>
@@ -27,7 +26,7 @@
         <nav>
             <button onclick="window.location.href='pizza.html'">Pizza</button>
             <button onclick="window.location.href='hamburguesa.html'">Hamburguesa</button>
-            <button onclick="window.location.href='perro caliente.html'">Perro Caliente</button>
+            <button onclick="window.location.href='perro_caliente.html'">Perro Caliente</button>
             <button onclick="window.location.href='snacks.html'">Snacks</button>
             <button onclick="window.location.href='bebidas.html'">Bebidas</button>
         </nav>
@@ -35,52 +34,32 @@
         <section class="menu-items">
             <h2>Elige tu Hamburguesa</h2>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="menu-item" data-name="Hamburguesa Clásica" data-price="6.50">
                     <img src="clasica.jpg" alt="Hamburguesa Clásica">
                     <h3>Hamburguesa Clásica</h3>
                     <p>$6.50</p>
                     <p>10 Disponibles</p>
-                    <div class="contador">
-                        <button onclick="changeValue('countercla', -1)">-</button>
-                        <input type="number" id="countercla" value="1" min="0">
-                        <button onclick="changeValue('countercla', 1)">+</button>
-                    </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" data-name="Hamburguesa con Queso" data-price="7.00">
                     <img src="queso.jpg" alt="Hamburguesa con Queso">
                     <h3>Hamburguesa con Queso</h3>
                     <p>$7.00</p>
                     <p>8 Disponibles</p>
-                    <div class="contador">
-                        <button onclick="changeValue('counterque', -1)">-</button>
-                        <input type="number" id="counterque" value="1" min="0">
-                        <button onclick="changeValue('counterque', 1)">+</button>
-                    </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" data-name="Hamburguesa con Bacon" data-price="7.50">
                     <img src="bacon.jpg" alt="Hamburguesa con Bacon">
                     <h3>Hamburguesa con Bacon</h3>
                     <p>$7.50</p>
                     <p>5 Disponibles</p>
-                    <div class="contador">
-                        <button onclick="changeValue('counterba', -1)">-</button>
-                        <input type="number" id="counterba" value="1" min="0">
-                        <button onclick="changeValue('counterba', 1)">+</button>
-                    </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item" data-name="Hamburguesa Vegana" data-price="7.00">
                     <img src="vegana.jpg" alt="Hamburguesa Vegana">
                     <h3>Hamburguesa Vegana</h3>
                     <p>$7.00</p>
                     <p>12 Disponibles</p>
-                    <div class="contador">
-                        <button onclick="changeValue('counter1veg', -1)">-</button>
-                        <input type="number" id="counter1veg" value="1" min="0">
-                        <button onclick="changeValue('counter1veg', 1)">+</button>
-                    </div>
                     <button class="agregar-carrito">Agregar al carrito</button>
                 </div>
             </div>
@@ -88,24 +67,10 @@
         
         <section class="cart">
             <h2>Carrito de Compras</h2>
-            <div class="cart-items">
-                <div class="cart-item">
-                    <p>Orange Juice (4) - $2.87 c/u</p>
-                    <p>Total: $11.48</p>
-                </div>
-                <div class="cart-item">
-                    <p>American Favorite (1) - $4.87</p>
-                </div>
-                <div class="cart-item">
-                    <p>Super Supreme (1) - $5.75</p>
-                </div>
-                <div class="cart-item">
-                    <p>Favorite Cheese (1) - $6.75</p>
-                </div>
-            </div>
-            <p><strong>Subtotal:</strong> $28.67</p>
-            <p><strong>Tax (10%):</strong> $2.86</p>
-            <p><strong>Total:</strong> $31.53</p>
+            <div class="cart-items"></div>
+            <p><strong>Subtotal:</strong> <span id="subtotal">$0.00</span></p>
+            <p><strong>Tax (10%):</strong> <span id="tax">$0.00</span></p>
+            <p><strong>Total:</strong> <span id="total">$0.00</span></p>
             <button class="print-bill">Imprimir Factura</button>
         </section>
     </div>

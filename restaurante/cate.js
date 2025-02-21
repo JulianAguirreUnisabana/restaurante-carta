@@ -1,52 +1,61 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Obtenemos todos los botones de incremento y decremento
-    const buttons = document.querySelectorAll(".contador button");
+    const cartItemsContainer = document.querySelector(".cart-items");
+    let carrito = {}; // Objeto para almacenar los productos agregados
 
-    buttons.forEach(button => {
+    // Evento para agregar productos al carrito
+    document.querySelectorAll(".agregar-carrito").forEach(button => {
         button.addEventListener("click", function () {
-            const input = this.parentElement.querySelector("input");
-            let cantidad = parseInt(input.value) || 0;
-            
-            if (this.textContent === "+") {
-                cantidad++;
-            } else if (this.textContent === "-" && cantidad > 0) {
-                cantidad--;
-            }
+            const item = this.closest(".menu-item");
+            const nombre = item.dataset.nombre;
+            const precio = parseFloat(item.dataset.precio);
 
-            input.value = cantidad;
+            if (carrito[nombre]) {
+                carrito[nombre].cantidad++;
+            } else {
+                carrito[nombre] = { nombre, precio, cantidad: 1 };
+            }
 
             actualizarCarrito();
         });
     });
-});
 
-function actualizarCarrito() {
-    const cartItemsContainer = document.querySelector(".cart-items");
-    cartItemsContainer.innerHTML = ""; // Limpiamos el carrito antes de actualizarlo
-    let subtotal = 0;
+    function actualizarCarrito() {
+        cartItemsContainer.innerHTML = ""; // Limpiar el carrito antes de actualizarlo
+        let subtotal = 0;
 
-    document.querySelectorAll(".menu-item").forEach(item => {
-        const input = item.querySelector("input");
-        let cantidad = parseInt(input.value) || 0;
-        if (cantidad > 0) {
-            const nombre = item.querySelector("h3").textContent;
-            const precio = parseFloat(item.querySelector("p").textContent.replace("$", ""));
-            const totalProducto = cantidad * precio;
+        Object.values(carrito).forEach(producto => {
+            const totalProducto = producto.cantidad * producto.precio;
             subtotal += totalProducto;
 
             const cartItem = document.createElement("div");
             cartItem.classList.add("cart-item");
-            cartItem.innerHTML = `<p>${nombre} (${cantidad}) - $${precio.toFixed(2)} c/u</p>
-                                  <p>Total: $${totalProducto.toFixed(2)}</p>`;
+            cartItem.innerHTML = `
+                <p>${producto.nombre} (${producto.cantidad}) - $${producto.precio.toFixed(2)} c/u</p>
+                <p>Total: $${totalProducto.toFixed(2)}</p>
+                <button class="quitar-item" data-nombre="${producto.nombre}">Quitar</button>
+            `;
             cartItemsContainer.appendChild(cartItem);
-        }
-    });
+        });
 
-    // Calcular impuestos y total
-    const tax = subtotal * 0.10;
-    const total = subtotal + tax;
+        // Calcular impuestos y total
+        const tax = subtotal * 0.10;
+        const total = subtotal + tax;
 
-    document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById("tax").textContent = `$${tax.toFixed(2)}`;
-    document.getElementById("total").textContent = `$${total.toFixed(2)}`;
-}
+        document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById("tax").textContent = `$${tax.toFixed(2)}`;
+        document.getElementById("total").textContent = `$${total.toFixed(2)}`;
+
+        // Evento para quitar productos del carrito
+        document.querySelectorAll(".quitar-item").forEach(button => {
+            button.addEventListener("click", function () {
+                const nombre = this.dataset.nombre;
+                if (carrito[nombre].cantidad > 1) {
+                    carrito[nombre].cantidad--;
+                } else {
+                    delete carrito[nombre];
+                }
+                actualizarCarrito();
+            });
+        });
+    }
+});
