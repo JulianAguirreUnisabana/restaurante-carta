@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Snacks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <aside>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="pizza.html">Categoría</a></li>
+            <li><a href="Carrito.html">Carrito de Compras</a></li>
+            <li><a href="DevsPage.html">Nuestro Equipo</a></li>
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <header>
+            <input type="text" placeholder="Buscar categoría o menú">
+            <span>5 artículos agotados</span>
+        </header>
+
+        <nav>
+            <button onclick="window.location.href='pizza.html'">Pizza</button>
+            <button onclick="window.location.href='hamburguesa.html'">Hamburguesa</button>
+            <button onclick="window.location.href='perro caliente.html'">Perro Caliente</button>
+            <button onclick="window.location.href='snacks.html'">Snacks</button>
+            <button onclick="window.location.href='bebidas.html'">Bebidas</button>
+        </nav>
+
+        <section class="menu-items">
+            <h2>Elige tu Snack</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="papas.jpg" alt="Papas Fritas">
+                    <h3>Papas Fritas</h3>
+                    <p>$2.50</p>
+                    <p>25 Disponibles</p>
+                    <div class="contador">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al carrito</button>
+                </div>
+                <div class="menu-item">
+                    <img src="nachos.jpg" alt="Nachos con Queso">
+                    <h3>Nachos con Queso</h3>
+                    <p>$3.50</p>
+                    <p>15 Disponibles</p>
+                    <div class="contador">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al carrito</button>
+                </div>
+                <div class="menu-item">
+                    <img src="alitas.jpg" alt="Alitas BBQ">
+                    <h3>Alitas BBQ</h3>
+                    <p>$5.00</p>
+                    <p>10 Disponibles</p>
+                    <div class="contador">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                    <button class="agregar-carrito">Agregar al carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cart">
+            <h2>Carrito de Compras</h2>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <p>Orange Juice (4) - $2.87 c/u</p>
+                    <p>Total: $11.48</p>
+                </div>
+                <div class="cart-item">
+                    <p>American Favorite (1) - $4.87</p>
+                </div>
+                <div class="cart-item">
+                    <p>Super Supreme (1) - $5.75</p>
+                </div>
+                <div class="cart-item">
+                    <p>Favorite Cheese (1) - $6.75</p>
+                </div>
+            </div>
+            <p><strong>Subtotal:</strong> $28.67</p>
+            <p><strong>Tax (10%):</strong> $2.86</p>
+            <p><strong>Total:</strong> $31.53</p>
+            <button class="print-bill">Imprimir Factura</button>
+        </section>
+    </div>
+</body>
+</html>
